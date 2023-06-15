@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/filmes") /* mapeando a requisição */
+@RequestMapping("/filmes/") /* mapeando a requisição */
 public class FilmeController {
     @GetMapping /* quando (acessar o endereço /filmes) requisição do tipo get vai acionar esse metodo*/
     public String carregaPaginaFormulario(){

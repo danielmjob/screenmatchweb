@@ -3,6 +3,7 @@ package br.com.alura.screenmatchweb.controller;
 import br.com.alura.screenmatchweb.model.filme.DadosCadastroFilme;
 import br.com.alura.screenmatchweb.model.filme.Filme;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,7 +24,8 @@ public class FilmeController {
         /* nome da pagina HTML que será acessada*/
     }
 
-    @GetMapping public String carregaPaginaListagem(){
+    @GetMapping public String carregaPaginaListagem(Model model){ /*Classe que acessa as variavereis para mandar para pagina de listagem*/
+        model.addAttribute("lista", filmes); /* usar o mesmo nome que definiu na pagina <tr th:each="filme : ${lista}">*/
         return "filmes/listagem";
     }
     @PostMapping /*envia dados do formulário*/

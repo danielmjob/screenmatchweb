@@ -1,32 +1,35 @@
 <!DOCTYPE html>
-<html lang="pt-BR" xmlns:th="http://thymeleaf.org"> <!-- th é abreviação de thymeleaf aqui estou importando a biblioteca-->
-<head>
-    <meta charset="UTF-8">
-    <title>Lista de filmes</title>
-</head>
-<body>
-    <h1>Lista de filme</h1>
+<html lang="pt-BR"
+      xmlns:th="http://thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{template.html}">
+    <head>
+        <title>Lista de filmes</title>
+    </head>
+    <body>
+        <div layout:fragment="conteudo">
+            <h1>Lista de filme</h1>
 
-    <table>
-        <thead>
-            <tr>
-                <th>NOME</th>
-                <th>DURAÇÃO</th>
-                <th>ANO DE LANÇAMENTO</th>
-                <th>GÊNERO</th>
-            </tr>
-        </thead>
+            <table>
+                <thead>
+                    <tr>
+                        <th>NOME</th>
+                        <th>DURAÇÃO</th>
+                        <th>ANO DE LANÇAMENTO</th>
+                        <th>GÊNERO</th>
+                    </tr>
+                </thead>
 
-        <tbody>
-            <tr th:each="filme : ${lista}"> <!-- usara o loop para listar -->
-                <td th:text="${filme.nome}"></td> <!-- Acessa o conteúdo da variavel aqui tem de referenciar a classe -->
-                <td th:text="${filme.duracaoEmMinutos}"></td>
-                <td th:text="${filme.anoLancamento}"></td>
-                <td th:text="${filme.genero}"></td>
-            </tr>
-        </tbody>
-    </table>
+                <tbody>
+                    <tr th:each="filme : ${lista}"> <!-- usara o loop para listar -->
+                        <td th:text="${filme.nome}"></td> <!-- Acessa o conteúdo da variavel aqui tem de referenciar a classe -->
+                        <td th:text="${filme.duracaoEmMinutos}"></td>
+                        <td th:text="${filme.anoLancamento}"></td>
+                        <td th:text="${filme.genero}"></td>
+                    </tr>
+                </tbody>
+            </table>
 
-
-</body>
+        </div>
+    </body>
 </html>

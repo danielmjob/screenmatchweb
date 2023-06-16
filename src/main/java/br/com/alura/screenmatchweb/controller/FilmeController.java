@@ -16,9 +16,15 @@ public class FilmeController {
 
     private List<Filme> filmes = new ArrayList<>();
 
-    @GetMapping /* quando (acessar o endereço /filmes) requisição do tipo get vai acionar esse metodo*/
+    @GetMapping ("/formulario")/* quando (acessar o endereço /filmes) requisição do tipo get vai acionar esse metodo*/
     public String carregaPaginaFormulario(){
-        return "filmes/formulario"; /* nome da pagina HTML que será acessada*/
+
+        return "filmes/formulario";
+        /* nome da pagina HTML que será acessada*/
+    }
+
+    @GetMapping public String carregaPaginaListagem(){
+        return "filmes/listagem";
     }
     @PostMapping /*envia dados do formulário*/
     public String cadastraFilme(DadosCadastroFilme dados){ /*Classe que recebe os dados do formulario, poderia tbm colocar eles um por um avulso mas geraria codigo dififil de manutenção*/

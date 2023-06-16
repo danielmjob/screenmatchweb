@@ -33,8 +33,8 @@ public class FilmeController {
         var filme = new Filme(dados);
         filmes.add(filme);
 
-        System.out.println(filmes); /*verifica se foi salvo na lista*/
-        return "filmes/formulario";
+        return "redirect:/filmes";
+        /* Redireciona para a pagina filmes que por sua vez vai puxar a o carregaPaginaListagem */
     }
 
 }

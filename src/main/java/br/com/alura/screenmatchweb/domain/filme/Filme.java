@@ -1,4 +1,4 @@
-package br.com.alura.screenmatchweb.model.filme;
+package br.com.alura.screenmatchweb.domain.filme;
 
 import jakarta.persistence.*;
 

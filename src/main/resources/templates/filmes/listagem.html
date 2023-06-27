@@ -5,11 +5,12 @@
       layout:decorate="~{template.html}">
     <head>
         <title>Lista de filmes</title>
+        <link rel="stylesheet" href="../static/css/estilos.css" th:href="@{/css/estilos.css}">
     </head>
     <body>
         <div layout:fragment="conteudo">
             <h1>Lista de filme</h1>
-
+            <a href="/filmes/formulario">Novo</a>
             <table>
                 <thead>
                     <tr>

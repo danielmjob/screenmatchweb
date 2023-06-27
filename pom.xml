@@ -43,6 +43,20 @@
 			<artifactId>thymeleaf-layout-dialect</artifactId>
 			<version>3.2.0</version>
 		</dependency>
+
+		<!--adicionando dependencia para mysql -->
+		<!-- acesso ao bando de dados -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+		<!-- driver para acesso mysql especifico para ele -->
+		<dependency>
+			<groupId>com.mysql</groupId>
+			<artifactId>mysql-connector-j</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+
 	</dependencies>
 
 	<build>

@@ -13,12 +13,18 @@ public class Filme {
     private Integer anoLancamento;
     private String genero;
 
+
+    public Filme(){
+        //criado construtor padrão devido a exigencia da JPA
+    }
+
     public Filme(DadosCadastroFilme dados){ /*Construtor recebe os dados da classe DadosCadastroFilme*/
         this.nome = dados.nome();
         this.duracaoEmMinutos = dados.duracao();
         this.anoLancamento = dados.ano();
         this.genero = dados.genero();
     }
+
 
     public Long getId() {
         return id;

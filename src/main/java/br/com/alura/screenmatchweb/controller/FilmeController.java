@@ -3,13 +3,12 @@ package br.com.alura.screenmatchweb.controller;
 import br.com.alura.screenmatchweb.domain.filme.DadosCadastroFilme;
 import br.com.alura.screenmatchweb.domain.filme.Filme;
 import br.com.alura.screenmatchweb.domain.filme.FilmeRepository;
+import br.com.alura.screenmatchweb.model.filme.DadosAlteracaoFilme;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,6 +39,7 @@ public class FilmeController {
         return "filmes/listagem";
     }
     @PostMapping /*envia dados do formulário*/
+    @Transactional /*Spring*/
     public String cadastraFilme(DadosCadastroFilme dados){ /*Classe que recebe os dados do formulario, poderia tbm colocar eles um por um avulso mas geraria codigo dififil de manutenção*/
         var filme = new Filme(dados);
         repository.save(filme);
@@ -47,7 +47,18 @@ public class FilmeController {
         return "redirect:/filmes";
         /* Redireciona para a pagina filmes que por sua vez vai puxar a o carregaPaginaListagem */
     }
+
+    @PutMapping /*Edita dados*/
+    @Transactional /*Spring*/
+    public String alteraFime(DadosAlteracaoFilme dados){
+        var filme = repository.getReferenceById(dados.id());
+        filme.atulizaDados(dados);
+
+        return "redirect:/filmes";
+        /* Redireciona para a pagina filmes que por sua vez vai puxar a o carregaPaginaListagem */
+    }
     @DeleteMapping
+    @Transactional /*Spring*/
     public String removeFilme(Long id){
         repository.deleteById(id);
         return "redirect:/filmes";

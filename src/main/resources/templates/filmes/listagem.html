@@ -29,6 +29,8 @@
                         <td th:text="${filme.anoLancamento}"></td>
                         <td th:text="${filme.genero}"></td>
                         <td>
+                            <a th:href="@{/filmes/formulario?id={id}(id=${filme.id})}">Editar</a> <!-- usar esse padrão -->
+
                             <form action="/filmes" method="post">
                                 <input type="hidden" name="_method" value="delete"> <!-- contornando limitação do html que so aceita get ou post-->
                                 <input type="hidden" name="id" th:value="${filme.id}"> <!-- ler o id do filme que esta sendo clicado-->

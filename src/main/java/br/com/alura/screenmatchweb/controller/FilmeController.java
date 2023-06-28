@@ -23,7 +23,13 @@ public class FilmeController {
     private FilmeRepository repository;
 
     @GetMapping ("/formulario")/* quando (acessar o endereço /filmes) requisição do tipo get vai acionar esse metodo*/
-    public String carregaPaginaFormulario(){
+    public String carregaPaginaFormulario(Long id, Model model){
+
+        //carrega os dados do filme se for uma edição ou seja se o id for diferente de null
+        if (id != null){
+            var filme = repository.getReferenceById(id);
+            model.addAttribute("filme",filme);
+        }
 
         return "filmes/formulario";
         /* nome da pagina HTML que será acessada*/

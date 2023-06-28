@@ -18,6 +18,7 @@
                         <th>DURAÇÃO</th>
                         <th>ANO DE LANÇAMENTO</th>
                         <th>GÊNERO</th>
+                        <th>AÇÕES</th>
                     </tr>
                 </thead>
 
@@ -27,6 +28,13 @@
                         <td th:text="${filme.duracaoEmMinutos}"></td>
                         <td th:text="${filme.anoLancamento}"></td>
                         <td th:text="${filme.genero}"></td>
+                        <td>
+                            <form action="/filmes" method="post">
+                                <input type="hidden" name="_method" value="delete"> <!-- contornando limitação do html que so aceita get ou post-->
+                                <input type="hidden" name="id" th:value="${filme.id}"> <!-- ler o id do filme que esta sendo clicado-->
+                                <input type="submit" value="Excluir">
+                            </form>
+                        </td>
                     </tr>
                 </tbody>
             </table>
